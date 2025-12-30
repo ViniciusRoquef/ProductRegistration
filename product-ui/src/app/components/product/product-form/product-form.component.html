@@ -1,0 +1,54 @@
+<section class="product-form">
+  <div class="product-form__container">
+    <header class="product-form__header">
+      <h2 class="product-form__title">
+        {{ id ? 'Editar produto' : 'Novo produto' }}
+      </h2>
+
+      <p class="product-form__loading" *ngIf="loading">Carregando...</p>
+    </header>
+
+    <form class="product-form__form" [formGroup]="form" (ngSubmit)="save()">
+      <div class="product-form__field">
+        <label class="product-form__label" for="productName">Nome</label>
+        <input
+          id="productName"
+          class="product-form__input"
+          type="text"
+          formControlName="name"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="product-form__field">
+        <label class="product-form__label" for="productPrice">Preço</label>
+        <input
+          id="productPrice"
+          class="product-form__input"
+          type="number"
+          formControlName="price"
+        />
+      </div>
+
+      <div class="product-form__field">
+        <label class="product-form__label" for="productDescription">Descrição</label>
+        <textarea
+          id="productDescription"
+          class="product-form__textarea"
+          rows="3"
+          formControlName="description"
+        ></textarea>
+      </div>
+
+      <div class="product-form__actions">
+        <button class="product-form__button product-form__button--primary" type="submit" [disabled]="loading">
+          Salvar
+        </button>
+
+        <button class="product-form__button product-form__button--secondary" type="button" (click)="cancel()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

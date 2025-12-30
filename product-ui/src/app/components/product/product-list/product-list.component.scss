@@ -1,0 +1,128 @@
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  &__button {
+    border: 0;
+    border-radius: 10px;
+    padding: .6rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    &--primary {
+      background: #111827;
+      color: #fff;
+    }
+  }
+
+  &__search {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+  }
+
+  &__search-field {
+    display: grid;
+    gap: .4rem;
+    max-width: 420px;
+  }
+
+  &__label {
+    font-size: .9rem;
+    font-weight: 600;
+  }
+
+  &__input {
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: .7rem .85rem;
+    font-size: .95rem;
+    outline: none;
+
+    &:focus {
+      border-color: #6b7280;
+      box-shadow: 0 0 0 3px rgba(107, 114, 128, .2);
+    }
+  }
+
+  &__loading {
+    font-size: .95rem;
+    opacity: .8;
+  }
+
+  &__table-wrapper {
+    background: #fff;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__thead {
+    background: #f3f4f6;
+  }
+
+  &__row {
+    border-bottom: 1px solid #e5e7eb;
+
+    &--head {
+      border-bottom: 2px solid #e5e7eb;
+    }
+  }
+
+  &__cell {
+    padding: .75rem .85rem;
+    font-size: .95rem;
+    text-align: left;
+    white-space: nowrap;
+
+    &--actions {
+      text-align: right;
+    }
+  }
+
+  &__action {
+    border: 0;
+    border-radius: 8px;
+    padding: .35rem .6rem;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: .4rem;
+
+    &--edit {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    &--delete {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  }
+
+  &__empty {
+    padding: 1.5rem;
+    text-align: center;
+    font-size: .95rem;
+    opacity: .7;
+  }
+}

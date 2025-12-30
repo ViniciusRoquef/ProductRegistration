@@ -1,0 +1,82 @@
+<section class="product-list">
+  <header class="product-list__header">
+    <h2 class="product-list__title">Produtos</h2>
+
+    <button
+      class="product-list__button product-list__button--primary"
+      type="button"
+      (click)="newProduct()">
+      Novo produto
+    </button>
+  </header>
+
+  <form class="product-list__search" [formGroup]="searchForm">
+    <div class="product-list__search-field">
+      <label class="product-list__label" for="searchName">
+        Buscar por nome
+      </label>
+
+      <input
+        id="searchName"
+        type="text"
+        class="product-list__input"
+        formControlName="name"
+        placeholder="Digite o nome do produto"
+      />
+    </div>
+  </form>
+
+  <p class="product-list__loading" *ngIf="loading">Carregando...</p>
+
+  <div class="product-list__table-wrapper" *ngIf="!loading">
+    <table class="product-list__table">
+      <thead class="product-list__thead">
+        <tr class="product-list__row product-list__row--head">
+          <th class="product-list__cell">ID</th>
+          <th class="product-list__cell">Nome</th>
+          <th class="product-list__cell">Preço</th>
+          <th class="product-list__cell">Descrição</th>
+          <th class="product-list__cell product-list__cell--actions">
+            Ações
+          </th>
+        </tr>
+      </thead>
+
+      <tbody class="product-list__tbody">
+        <tr
+          class="product-list__row"
+          *ngFor="let product of products"
+        >
+          <td class="product-list__cell">{{ product.id }}</td>
+          <td class="product-list__cell">{{ product.name }}</td>
+          <td class="product-list__cell">{{ product.price }}</td>
+          <td class="product-list__cell">{{ product.description }}</td>
+
+          <td class="product-list__cell product-list__cell--actions">
+            <button
+              class="product-list__action product-list__action--edit"
+              type="button"
+              (click)="editProduct(product)"
+            >
+              Editar
+            </button>
+
+            <button
+              class="product-list__action product-list__action--delete"
+              type="button"
+              (click)="removeProduct(product)"
+            >
+              Excluir
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="products.length === 0">
+          <td class="product-list__empty" colspan="5">
+            Nenhum produto encontrado.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
